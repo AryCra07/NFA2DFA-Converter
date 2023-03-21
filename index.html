@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>NFA to DFA</title>
+
+        <link rel="stylesheet" href="/converter.css" />
+        <!-- <link rel="stylesheet" 
+            href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" 
+            integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" 
+            crossorigin="anonymous" 
+        /> -->
+        <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    </head>
+    <body>
+      <nav
+        class="navbar navbar-dark bg-primary navbar-expand-lg bg-body-tertiary"
+      >
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">NFA-DFA Converter</a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div
+                    class="collapse navbar-collapse"
+                    id="navbarSupportedContent"
+                >
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a
+                                class="nav-link active"
+                                aria-current="page"
+                                href="index.html"
+                                >Home</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="team.html">Our Team</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <h1></h1>
+            <h2>输入需要转化的 NFA</h2>
+
+            <p class="instructions">
+                请在下方输入NFA
+            </p>
+
+            <p class="instructions-list">
+                <ul>
+                    <li>首先输入初态和终态。终态若有多个，应该以逗号分隔</li>
+                    <li>输入转换函数，两个参数分别为现态和输入符号</li>
+                    <li>[&epsilon;]: 转换函数的第二个参数可不填，默认为空(&epsilon;)</li>
+                </ul>
+            </p>
+            
+            <div class="main-part">
+                <button
+                    type="button"
+                    class="btn btn-outline-success"
+                    id="exampleBtn"
+                    title="Fill in an example NFA"
+                >
+                示例
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-outline-danger"
+                  id="resetBtn"
+                  title="Reset the current NFA"
+                >
+                  重置
+                </button>
+                <form class="form-horizontal align-center" id="nfa" role="form">
+                    <form class="form-horizontal">
+                      <div class="form-group form-inline">
+                        <label for="initialStateInput">始态: &nbsp;&nbsp;</label>
+                        <input type="text" class="form-control" id="initialStateInput" />
+                      </div>
+          
+                      <div class="form-group form-inline">
+                        <label for="finalStatesInput">终态: &nbsp;&nbsp;</label>
+                        <input type="text" class="form-control" id="finalStatesInput" />
+                      </div>
+                    </form>
+                    <div class="form-inline" id="nfa-transitions">
+                      <div class="production-row">
+                        &delta;(&nbsp;<input
+                          type="text"
+                          class="form-control current-state-input"
+                        />&nbsp;,&nbsp;<input
+                          type="text"
+                          class="form-control input-symbol"
+                          placeholder="&epsilon;"
+                        />&nbsp;)&nbsp;=&nbsp;<input
+                          type="text"
+                          class="form-control next-states"
+                        />
+                        <span
+                          class="glyphicon glyphicon-remove-circle remove-button"
+                          title="Remove this transition"
+                        ></span>
+                      </div>
+                    </div>
+                  </form>
+                  <br>
+
+                  <div class="col-xs-6 new-production">
+                    <button
+                            id="new-transition"
+                            type="button"
+                            class="btn btn-outline-success"
+                            title="Create a new transition"
+                    >
+                        <span class="glyphicon glyphicon-plus"></span> &nbsp;需要新的转换函数请点击此处或按回车键
+                    </button>
+                </div>
+            </div>
+        </div>
+        <br><br><br>
+    </body>
+</html>
