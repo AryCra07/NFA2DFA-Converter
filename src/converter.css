@@ -10,6 +10,11 @@
     margin-right: 5px;
 }
 
+.remove-button {
+    /*width: 40px;*/
+    /*height: 20px;*/
+}
+
 .col-xs-nt,
 .col-xs-pr {
     min-height: 1px;
@@ -71,12 +76,6 @@ div.new-production {
 #nfa {
     margin-top: 10px;
     padding: 10px 0px;
-}
-
-#initialStateInput,
-#finalStatesInput {
-    width: 500px;
-    height: 30px;
 }
 
 #current-nfa {
