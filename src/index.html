@@ -6,12 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>NFA to DFA</title>
 
-    <link rel="stylesheet" href="/src/css/converter.css"/>
-    <!-- <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
-        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
-        crossorigin="anonymous"
-    /> -->
+    <link rel="stylesheet" href="./css/converter.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
           integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 </head>
@@ -131,14 +126,14 @@
     </div>
     <br><br>
     <div class="clearfix"></div>
-    <h1 id="verify-update-debug">Verify</h1>
+    <h1 id="verify-update-debug">图形化输入</h1>
 
-    <p>This is the NFA you have input above:</p>
+    <p>输入的NFA如下：</p>
     <span id="current-nfa-status"></span>
     <div id="current-nfa"></div>
 
     <div class="clearfix"></div>
-    <h1>Equivalent DFA</h1>
+    <h1>等价DFA</h1>
     <div class="row">
         <div class="col-lg">
             <span id="current-dfa-status"></span>
@@ -147,7 +142,7 @@
         <div id="step-div" class="col-lg"></div>
     </div>
 
-    <h1>Minimized DFA</h1>
+    <h1>最小化DFA</h1>
     <span id="current-dfa-minimized-status"></span>
     <div id="current-dfa-minimized"></div>
 
@@ -183,11 +178,9 @@
 ></script>
 <script src="https://unpkg.com/d3-graphviz@2.6.1/build/d3-graphviz.js"></script>
 
-<!-- NFAtoDFA engine -->
-<script src="js/NFAtoDFA-converter.js"></script>
+<script src="./js/NFAtoDFA-converter.js"></script>
 
-<!-- NFAtoDFA DOM -->
-<script src="js/WebDOM.js"></script>
+<script src="./js/WebDOM.js"></script>
 
 </body>
 </html>
