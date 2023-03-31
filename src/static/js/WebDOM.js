@@ -208,8 +208,17 @@ $(document).ready(function () {
     let alphabet = [];
     let transitions = [];
 
-    if (initialState.includes("{") || finalStates.includes("{")) {
-      alert('State names cannot contain the "{" character!');
+    if (initialState.indexOf(" ") >= 0 || initialState.indexOf(",") >= 0) {
+      alert("初态中只能输入一个字符或无空格字符串！");
+      return null;
+    }
+    if (initialState.includes("{") || finalStates.includes("{") ||
+      initialState.includes("}") || finalStates.includes("}") ||
+      initialState.includes("(") || finalStates.includes("(") ||
+      initialState.includes(")") || finalStates.includes(")") ||
+      initialState.includes("[") || finalStates.includes("[") ||
+      initialState.includes("]") || finalStates.includes("]")) {
+      alert("状态中请不要包含括号");
       return null;
     }
 
@@ -228,7 +237,6 @@ $(document).ready(function () {
 
       transitions.push(new Transition(currentState, nextState, inputSymbol));
 
-      // Populate alphabet without lambda
       if (inputSymbol !== "\u03B5" && !alphabet.includes(inputSymbol))
         alphabet.push(inputSymbol);
 

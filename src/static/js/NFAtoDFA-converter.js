@@ -2,25 +2,19 @@ let LAST_COMPLETED_STEP_COUNT = 0
 
 class NFA {
   constructor(initialState, finalStates, states, alphabet, transitions) {
-    if (!(typeof initialState === "string" || initialState instanceof String))
-      throw new Error("Expected a single initial state (string)");
-
     if (!Array.isArray(finalStates)) {
-      console.warn("Expected finalStates in NFA to be an array");
       let arr = [];
       arr.push(finalStates.toString());
       finalStates = arr;
     }
 
     if (!Array.isArray(alphabet)) {
-      console.warn("Expected alphabet in NFA to be an array");
       let arr = [];
       arr.push(alphabet.toString());
       alphabet = arr;
     }
 
     if (!Array.isArray(transitions)) {
-      console.warn("Expected transitions in NFA to be an array");
       let arr = [];
       arr.push(transitions);
       transitions = arr;
@@ -73,7 +67,6 @@ class Transition {
       throw new Error("Expected a single state (string)");
 
     if (!Array.isArray(nextStates)) {
-      console.warn("Expected nextStates in transition to be an array");
       let arr = [];
       arr.push(nextStates.toString());
       nextStates = arr;
