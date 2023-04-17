@@ -206,34 +206,38 @@ function generateDFA(nfa, stepCNTStop = -1) {
             nextStateUnion.push(ns[k]);
           }
         }
+      }
 
-        let combinedStatesUnion = combineStates(nextStateUnion);
+      let combinedStatesUnion = combineStates(nextStateUnion);
 
-        if (combinedStatesUnion != null) {
-          DFATransitions.push(new Transition(state, combinedStatesUnion, nfa.alphabet[i]));
+      if (combinedStatesUnion != null) {
+        DFATransitions.push(new Transition(state, combinedStatesUnion, nfa.alphabet[i]));
 
-          if (!DFAStates.includes(combinedStatesUnion)) {
-            console.log(
-              state + ", " + nfa.alphabet[i] + " -> " + combinedStatesUnion
-            );
-            DFAStates.push(combinedStatesUnion);
-            waitStack.push(combinedStatesUnion);
-          } else {
-            console.log("TRAP state needed");
+        console.log(
+          state + ", " + nfa.alphabet[i] + " -> " + combinedStatesUnion
+        );
 
-            if (!DFAStates.includes("TRAP")) {
-              for (let n = 0; n < nfa.alphabet.length; n++)
-                DFATransitions.push(
-                  new Transition("TRAP", ["TRAP"], nfa.alphabet[n])
-                );
-
-              DFAStates.push("TRAP");
-            }
-
-            DFATransitions.push(new Transition(state, ["TRAP"], nfa.alphabet[i]));
-          }
+        if (!DFAStates.includes(combinedStatesUnion)) {
+          DFAStates.push(combinedStatesUnion);
+          waitStack.push(combinedStatesUnion);
         }
       }
+      // else {
+      //   console.log("TRAP state needed");
+      //
+      //   if (!DFAStates.includes("TRAP")) {
+      //     for (let n = 0; n < nfa.alphabet.length; n++)
+      //       DFATransitions.push(
+      //         new Transition("TRAP", ["TRAP"], nfa.alphabet[n])
+      //       );
+      //
+      //     DFAStates.push("TRAP");
+      //   }
+      //
+      //   DFATransitions.push(new Transition(state, ["TRAP"], nfa.alphabet[i]));
+      // }
+
+
     }
   }
 
