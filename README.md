@@ -4,4 +4,4 @@
 
 - A fantastic converter with a visual interface.
 
-- Implement by HTML+CSS+JavaScript+BootStrap+JQuery.
+- Implement by HTML+CSS+JavaScript.
