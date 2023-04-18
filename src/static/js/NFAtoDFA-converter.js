@@ -236,8 +236,6 @@ function generateDFA(nfa, stepCNTStop = -1) {
       //
       //   DFATransitions.push(new Transition(state, ["TRAP"], nfa.alphabet[i]));
       // }
-
-
     }
   }
 
